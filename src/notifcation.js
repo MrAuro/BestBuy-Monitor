@@ -3,6 +3,8 @@ const moment = require('moment');
 const config = require('../config/setting.json')
 const chalk = require('chalk')
 
+require("dotenv").config();
+
 async function send(product){
     console.log(chalk.yellow("Sending notification to discord"))
     try{
@@ -41,6 +43,20 @@ async function send(product){
     }catch(e){
         console.log(chalk.red("Error sending discord webhook :" , e))
         return
+    }
+    try {
+        var twilio = require('twilio');
+
+        // Find your account sid and auth token in your Twilio account Console.
+        var client = new twilio(process.env.SID, process.env.TOKEN);        
+        // Send the text message.
+        client.messages.create({
+          to: process.env.TO,
+          from: process.env.FROM,
+          body: `${product.name} is in stock for ${product.Price} (SKU: ${product.Sku})`
+        });
+    }catch(e){
+        console.log(chalk.red("Error sending text message :", e))
     }
 }
 
