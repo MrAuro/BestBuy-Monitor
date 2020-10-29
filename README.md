@@ -38,6 +38,15 @@ node app.js
 
 ### Setup 
 
+**This fork is for twilio text messaging. If you do not want text messaging, go to the orignal**
+Create a `.env` and put in the following values:
+```
+SID=<Trillio SID>
+TOKEN=<Trilio AUTH TOKEN>
+TO=<TO PHONENUMBER>
+FROM=<FROM PHONENUMBER>
+```
+
 Make sure to add your server webhook within the `setting.json` file before starting the application or you will run into an error and the app will close.
 
 Here is an example sku **"6364255"** , each sku should be seperated with a `,`.
