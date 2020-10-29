@@ -47,6 +47,8 @@ TO=<TO PHONENUMBER>
 FROM=<FROM PHONENUMBER>
 ```
 
+Get these values from [Twilio](https://www.twilio.com/)
+
 Make sure to add your server webhook within the `setting.json` file before starting the application or you will run into an error and the app will close.
 
 Here is an example sku **"6364255"** , each sku should be seperated with a `,`.
